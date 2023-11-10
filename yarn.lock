@@ -1280,6 +1280,19 @@
     tslib "2.6.1"
     wagmi "1.3.10"
 
+"@daohaus/data-fetch-utils@0.3.2":
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/@daohaus/data-fetch-utils/-/data-fetch-utils-0.3.2.tgz#691248251d01fd025df512f024d4ba39612794d9"
+  integrity sha512-+19ogaWT4uMEzcCrbubhaCgP5K97twXj1ML9PqlaSkEmRFoUZhtvqLrx65pd7wariXIB47onJjaRUm4TozzDjA==
+  dependencies:
+    "@daohaus/keychain-utils" "0.3.2"
+    "@graphql-typed-document-node/core" "3.2.0"
+    cross-fetch "3.1.8"
+    graphql "16.3.0"
+    graphql-request "4.3.0"
+    tslib "2.6.1"
+    wagmi "1.3.10"
+
 "@daohaus/form-builder-base@0.3.1", "@daohaus/form-builder-base@^0.3.1":
   version "0.3.1"
   resolved "https://registry.yarnpkg.com/@daohaus/form-builder-base/-/form-builder-base-0.3.1.tgz#2cdea3603a14b012b4150bdb0c83833e13223b41"
@@ -1330,6 +1343,27 @@
     "@daohaus/data-fetch-utils" "0.3.1"
     "@daohaus/keychain-utils" "0.3.1"
     "@daohaus/utils" "0.3.1"
+    "@graphql-typed-document-node/core" "3.2.0"
+    cross-fetch "3.1.8"
+    date-fns "2.30.0"
+    graphql "16.3.0"
+    graphql-request "4.3.0"
+    localforage "1.10.0"
+    numbro "2.3.6"
+    react "18.2.0"
+    react-hook-form "7.45.4"
+    tslib "2.6.1"
+    viem "1.6.0"
+    wagmi "1.3.10"
+
+"@daohaus/moloch-v3-data@^0.3.2":
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/@daohaus/moloch-v3-data/-/moloch-v3-data-0.3.2.tgz#00f9de01a7994edc1a7429c3d1b1d8ebd359bf15"
+  integrity sha512-V94HyODvLlYczBp7jMt6vYs5ho+ogRkCUOAHyW/mdt+rhdielu1TgL3aahHR1Yk9IJbFseQuBSH02yvXDq2Nhg==
+  dependencies:
+    "@daohaus/data-fetch-utils" "0.3.2"
+    "@daohaus/keychain-utils" "0.3.2"
+    "@daohaus/utils" "0.3.2"
     "@graphql-typed-document-node/core" "3.2.0"
     cross-fetch "3.1.8"
     date-fns "2.30.0"

@@ -19,8 +19,6 @@ export const ContentHashField = (props: Buildable<object>) => {
   const [errorText, setErrorText] = useState<string | null>(null);
 
   useEffect(() => {
-    console.log("title", title);
-    console.log("description", description);
 
     if (!title || !description) {
       return;

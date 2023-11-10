@@ -1,14 +1,22 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import { HausThemeProvider } from '@daohaus/ui';
-import App from './App.tsx'
-import './index.css'
-import { customTheme } from './components/theme/theme.ts';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { HashRouter } from "react-router-dom";
+import { HausThemeProvider } from "@daohaus/ui";
+import { QueryClient, QueryClientProvider } from "react-query";
+import App from "./App.tsx";
+import "./index.css";
+import { customTheme } from "./components/theme/theme.ts";
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+const queryClient = new QueryClient();
+
+ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <HausThemeProvider themeOverrides={customTheme}>
-      <App />
-    </HausThemeProvider>
-  </React.StrictMode>,
-)
+    <HashRouter>
+      <QueryClientProvider client={queryClient}>
+        <HausThemeProvider themeOverrides={customTheme}>
+          <App />
+        </HausThemeProvider>
+      </QueryClientProvider>
+    </HashRouter>
+  </React.StrictMode>
+);
