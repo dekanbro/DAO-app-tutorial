@@ -24,6 +24,6 @@ export const customTheme: ThemeOverrides = {
   primary: { ...customPrimary },
   button: {
     ...defaultDarkTheme.button,
-    radius: '100px',
+    radius: '10px',
   },
 };

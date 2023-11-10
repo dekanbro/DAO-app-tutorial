@@ -1,19 +1,15 @@
+import { DHConnectProvider } from "@daohaus/connect";
+import { Home } from "./pages/Home";
+import { TARGET_DAO } from "./targetDao";
 
-import { FormBuilder } from '@daohaus/form-builder'
-import { ExampleComponent } from './components/ExampleComponent'
-import { APP_FORM } from './legos/forms'
 
 function App() {
-
+  
   return (
-    <>
-    <ExampleComponent />
-      
-    <FormBuilder
-      form={APP_FORM.TEST_FORM}
-    />
-    </>
-  )
+    <DHConnectProvider daoChainId={TARGET_DAO.CHAIN_ID}>
+      <Home />
+    </DHConnectProvider>
+  );
 }
 
-export default App
+export default App;
