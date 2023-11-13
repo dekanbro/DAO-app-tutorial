@@ -96,6 +96,13 @@
   },
   {
     "inputs": [],
+    "name": "_baal",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
     "name": "_poster",
     "outputs": [
       { "internalType": "contract IPoster", "name": "", "type": "address" }
@@ -107,13 +114,6 @@
     "inputs": [],
     "name": "_price",
     "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "_target",
-    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
     "stateMutability": "view",
     "type": "function"
   },
@@ -133,6 +133,18 @@
     ],
     "name": "balanceOf",
     "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "parentId", "type": "uint256" },
+      { "internalType": "uint256", "name": "", "type": "uint256" }
+    ],
+    "name": "childs",
+    "outputs": [
+      { "internalType": "uint256", "name": "childIds", "type": "uint256" }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
@@ -165,9 +177,13 @@
     "type": "function"
   },
   {
-    "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "inputs": [
+      { "internalType": "uint256", "name": "tokenId", "type": "uint256" }
+    ],
     "name": "mints",
-    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "outputs": [
+      { "internalType": "uint256", "name": "parentId", "type": "uint256" }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
@@ -196,31 +212,29 @@
   },
   {
     "inputs": [
+      { "internalType": "address", "name": "to", "type": "address" },
       { "internalType": "bytes32", "name": "postId", "type": "bytes32" },
       { "internalType": "string", "name": "content", "type": "string" }
     ],
     "name": "post",
     "outputs": [],
-    "stateMutability": "payable",
+    "stateMutability": "nonpayable",
     "type": "function"
   },
   {
-    "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "inputs": [
+      { "internalType": "uint256", "name": "tokenId", "type": "uint256" }
+    ],
     "name": "posts",
-    "outputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }],
+    "outputs": [
+      { "internalType": "bytes32", "name": "hash", "type": "bytes32" }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [],
     "name": "renounceOwnership",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [{ "internalType": "address", "name": "to", "type": "address" }],
-    "name": "safeMint",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -266,6 +280,15 @@
     "type": "function"
   },
   {
+    "inputs": [
+      { "internalType": "address", "name": "baal", "type": "address" }
+    ],
+    "name": "setBaal",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
     "inputs": [{ "internalType": "string", "name": "uri", "type": "string" }],
     "name": "setExternalUri",
     "outputs": [],
@@ -284,15 +307,6 @@
       { "internalType": "uint256", "name": "price", "type": "uint256" }
     ],
     "name": "setPrice",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      { "internalType": "address", "name": "target", "type": "address" }
-    ],
-    "name": "setTarget",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"

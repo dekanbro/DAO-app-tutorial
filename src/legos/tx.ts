@@ -32,6 +32,7 @@ export const APP_TX = {
         contract: APP_CONTRACT.WORDSMITH_POST,
         method: 'post',
         args: [
+          ".memberAddress",
           ".formValues.contentHash",
           {
             type: "JSONDetails",
@@ -43,7 +44,11 @@ export const APP_TX = {
               description: ".formValues.pubDescription",
               contentURI: ".formValues.link",
               contentURIType: { type: "static", value: "url" },
+              imageURI: ".formValues.image",
+              imageURIType: { type: "static", value: "url" },
               contentHash: ".formValues.contentHash",
+              authorAddress: ".memberAddress",
+              parentId: { type: "static", value: 0 },
             },
           },
         ],

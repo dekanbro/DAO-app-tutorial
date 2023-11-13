@@ -9,10 +9,39 @@ const defaultGraphApiKeys = {
   "0x64": import.meta.env.VITE_GRAPH_API_KEY_MAINNET,
 };
 
+type Record = {
+  id: string;
+  createdAt: string;
+  createdBy: string;
+  tag: string;
+  table: string;
+  contentType: string;
+  content: string;
+  queryType: string;
+  dao: {
+    id: string;
+  };
+  parsedContent: {
+    daoId: string;
+    table: string;
+    queryType: string;
+    title: string;
+    description: string;
+    contentURI: string;
+    contentURIType: string;
+    imageURI: string;
+    imageURIType: string;
+    contentHash: string;
+  };
+};
+
+
+
 const fetchRecords = async ({
   daoId,
   chainId,
   recordType,
+  hash,
   pageSize,
   offset,
   graphApiKeys,
@@ -20,6 +49,7 @@ const fetchRecords = async ({
   daoId: string;
   chainId: ValidNetwork;
   recordType: string;
+  hash?: string;
   pageSize: number;
   offset: number;
   graphApiKeys: Keychain;
@@ -31,6 +61,15 @@ const fetchRecords = async ({
       filter: { dao: daoId, table: recordType },
       paging: { pageSize, offset },
     });
+
+    console.log('items', data.items);
+    
+
+    if (hash) {
+      return data.items.filter(
+        (item) => (item as Record)?.parsedContent?.contentHash === hash
+      );
+    }
 
     return data.items;
   } catch (error) {
@@ -45,6 +84,7 @@ export const useRecords = ({
   daoId,
   chainId,
   recordType,
+  hash,
   pageSize = 500,
   offset = 0,
   graphApiKeys = defaultGraphApiKeys,
@@ -52,17 +92,19 @@ export const useRecords = ({
   daoId: string;
   chainId: ValidNetwork;
   recordType: string;
+  hash?: string;
   pageSize?: number;
   offset?: number;
   graphApiKeys?: Keychain;
 }) => {
   const { data, error, ...rest } = useQuery(
-    [`${daoId}_${recordType}`, { daoId, chainId }],
+    [`${daoId}_${recordType}_${hash || ""}`, { daoId, chainId }],
     () =>
       fetchRecords({
         daoId,
         chainId: chainId as ValidNetwork,
         recordType,
+        hash,
         pageSize,
         offset,
         graphApiKeys,

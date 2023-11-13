@@ -27,6 +27,12 @@ export const APP_FIELD: Record<string, CustomFieldLego> = {
     placeholder: "http://",
     label: "External Link",
   },
+  IMAGE_FIELD:  {
+    id: "image",
+    type: "input",
+    placeholder: "http://",
+    label: "Image Header Link",
+  },
   TAGS_FIELD: {
     id: "testField",
     type: "csInput",

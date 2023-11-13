@@ -13,6 +13,7 @@ export const APP_FORM: Record<string, CustomFormLego> = {
     log: true,
     tx: APP_TX.MINT_POST as TXLego,
     fields: [
+      APP_FIELD.IMAGE_FIELD,
       APP_FIELD.TITLE_FIELD,
       {...APP_FIELD.DESC_FIELD, type: "markdownField"},
       APP_FIELD.LINK_FIELD,
