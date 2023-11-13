@@ -51,7 +51,7 @@ const CardImg = styled.div`
 `;
 
 export const ArticleList = () => {
-  const { publicClient, address } = useDHConnect();
+  const { address } = useDHConnect();
   const { records } = useRecords({
     daoId: TARGET_DAO.DAO_ADDRESS,
     chainId: TARGET_DAO.CHAIN_ID,

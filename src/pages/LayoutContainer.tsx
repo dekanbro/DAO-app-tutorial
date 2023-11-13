@@ -1,5 +1,5 @@
 import { DHLayout, useDHConnect } from "@daohaus/connect";
-
+import { CurrentDaoProvider} from "@daohaus/moloch-v3-hooks";
 import { Outlet, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import { TXBuilder } from "@daohaus/tx-builder";
@@ -30,7 +30,16 @@ export const LayoutContainer = () => {
       <DHLayout navLinks={[
         { label: "Submission", href: `/new` },
         { label: "Articles", href: `/articles` },
+        { label: "Curate", href: `/proposals` },
       ]} pathname={location.pathname}>
+        <CurrentDaoProvider
+        userAddress={address}
+        targetDao={{
+          daoChain: TARGET_DAO.CHAIN_ID,
+          daoId: TARGET_DAO.DAO_ADDRESS,
+
+        }}
+      >
         <TXBuilder
           publicClient={publicClient}
           chainId={TARGET_DAO.CHAIN_ID}
@@ -40,6 +49,7 @@ export const LayoutContainer = () => {
         >
           <Outlet />
         </TXBuilder>
+        </CurrentDaoProvider>
       </DHLayout>
       </OuterLayoutContainer>
 

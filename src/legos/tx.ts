@@ -16,6 +16,18 @@ export enum ProposalTypeIds {
   }
 
 export const APP_TX = {
+    COLLECT: {
+        id: "COLLECT",
+        contract: APP_CONTRACT.WORDSMITH_POST,
+        method: 'collect',
+        args: [
+          ".postId"
+        ],
+        disablePoll: true,
+        staticOverrides: {
+          value: TARGET_DAO.NFT_PRICE,
+        }
+      },
     MINT_POST: buildMultiCallTX({
         id: "MINT_PROPOSAL",
     JSONDetails: {

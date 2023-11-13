@@ -138,6 +138,17 @@
   },
   {
     "inputs": [
+      { "internalType": "uint256", "name": "tokenId", "type": "uint256" }
+    ],
+    "name": "chashes",
+    "outputs": [
+      { "internalType": "bytes32", "name": "hash", "type": "bytes32" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
       { "internalType": "uint256", "name": "parentId", "type": "uint256" },
       { "internalType": "uint256", "name": "", "type": "uint256" }
     ],
@@ -146,6 +157,15 @@
       { "internalType": "uint256", "name": "childIds", "type": "uint256" }
     ],
     "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes32", "name": "postId", "type": "bytes32" }
+    ],
+    "name": "collect",
+    "outputs": [],
+    "stateMutability": "payable",
     "type": "function"
   },
   {
@@ -165,15 +185,6 @@
     "name": "isApprovedForAll",
     "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
     "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      { "internalType": "uint256", "name": "targetTokenId", "type": "uint256" }
-    ],
-    "name": "mint",
-    "outputs": [],
-    "stateMutability": "payable",
     "type": "function"
   },
   {
@@ -223,11 +234,11 @@
   },
   {
     "inputs": [
-      { "internalType": "uint256", "name": "tokenId", "type": "uint256" }
+      { "internalType": "bytes32", "name": "hash", "type": "bytes32" }
     ],
     "name": "posts",
     "outputs": [
-      { "internalType": "bytes32", "name": "hash", "type": "bytes32" }
+      { "internalType": "uint256", "name": "tokenId", "type": "uint256" }
     ],
     "stateMutability": "view",
     "type": "function"
@@ -309,6 +320,13 @@
     "name": "setPrice",
     "outputs": [],
     "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "shamanName",
+    "outputs": [{ "internalType": "string", "name": "", "type": "string" }],
+    "stateMutability": "view",
     "type": "function"
   },
   {

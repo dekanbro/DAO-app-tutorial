@@ -1211,6 +1211,11 @@
   resolved "https://registry.yarnpkg.com/@daohaus/abis/-/abis-0.3.1.tgz#d43bdd055dc9ca60a9e41d08188c9a134296897f"
   integrity sha512-PubbnhQbuODoJ5K8+wNI7VMtofaPOX1+wh67MiotaosTbSjef2S5cCUCiLq08+XEGHRrwhhCYwm/3n/WRUWKzg==
 
+"@daohaus/abis@0.3.2":
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/@daohaus/abis/-/abis-0.3.2.tgz#e24b661ba46b88dad0deda15f1605d84c2ca5b30"
+  integrity sha512-lUxqadaQATBtNnGm/cIZDr1FUI7Sd5wHAI8yOb9lM86r8r1nIx+tEpM0iiwtf4NrfBbHgxiuQ41U3yxaHbYKuw==
+
 "@daohaus/connect-context@0.3.1":
   version "0.3.1"
   resolved "https://registry.yarnpkg.com/@daohaus/connect-context/-/connect-context-0.3.1.tgz#5dd277502aa5f9c4bb7c0d1e3e63a9b1114c63fe"
@@ -1253,7 +1258,7 @@
     react-icons "4.10.1"
     styled-components "6.0.7"
 
-"@daohaus/connect@^0.3.2":
+"@daohaus/connect@0.3.2", "@daohaus/connect@^0.3.2":
   version "0.3.2"
   resolved "https://registry.yarnpkg.com/@daohaus/connect/-/connect-0.3.2.tgz#85c96911268a239e6db1c2c296630a951e353a9c"
   integrity sha512-t8zIeZ+4u7hD9713dEnq7wtbTKQNuX6WwrPwtEaP8azS8AU7ivueJYh3TRgbY6HfwscqqzjnyvM6m5PyqGWjDA==
@@ -1304,6 +1309,17 @@
     react-hook-form "7.45.4"
     styled-components "6.0.7"
 
+"@daohaus/form-builder-base@0.3.2":
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/@daohaus/form-builder-base/-/form-builder-base-0.3.2.tgz#b04032e5ac7a4feddd9eb8d1fb615dd86783a3af"
+  integrity sha512-UqFoNGkmMdvl9h+F4jVZLNitpn1HdnhfXFkB3iBBjaXD4MHsPaq56g3Z2i81Sk/FF4XQulNHzlge7Z3u8Zhnog==
+  dependencies:
+    "@daohaus/utils" "0.3.2"
+    "@hookform/devtools" "4.3.1"
+    react "18.2.0"
+    react-hook-form "7.45.4"
+    styled-components "6.0.7"
+
 "@daohaus/form-builder@0.3.1", "@daohaus/form-builder@^0.3.1":
   version "0.3.1"
   resolved "https://registry.yarnpkg.com/@daohaus/form-builder/-/form-builder-0.3.1.tgz#81c636021176da69e49cd231ee7c90cbb9596090"
@@ -1314,6 +1330,21 @@
     "@daohaus/tx-builder" "0.3.1"
     "@daohaus/ui" "0.3.1"
     "@daohaus/utils" "0.3.1"
+    react "18.2.0"
+    react-hook-form "7.45.4"
+    react-icons "4.10.1"
+    styled-components "6.0.7"
+
+"@daohaus/form-builder@0.3.2":
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/@daohaus/form-builder/-/form-builder-0.3.2.tgz#be6d95f6e05057ff341d6a8e9dd30ed08c865440"
+  integrity sha512-474oXPacGbos5meUdegqbH1zJqQx+JLAgngPFY7QC5uR5SOzX+9ekH9M77H9Ynjbt4aiVAKN1uQo88w47bHqRQ==
+  dependencies:
+    "@daohaus/connect" "0.3.2"
+    "@daohaus/form-builder-base" "0.3.2"
+    "@daohaus/tx-builder" "0.3.2"
+    "@daohaus/ui" "0.3.2"
+    "@daohaus/utils" "0.3.2"
     react "18.2.0"
     react-hook-form "7.45.4"
     react-icons "4.10.1"
@@ -1356,7 +1387,7 @@
     viem "1.6.0"
     wagmi "1.3.10"
 
-"@daohaus/moloch-v3-data@^0.3.2":
+"@daohaus/moloch-v3-data@0.3.2", "@daohaus/moloch-v3-data@^0.3.2":
   version "0.3.2"
   resolved "https://registry.yarnpkg.com/@daohaus/moloch-v3-data/-/moloch-v3-data-0.3.2.tgz#00f9de01a7994edc1a7429c3d1b1d8ebd359bf15"
   integrity sha512-V94HyODvLlYczBp7jMt6vYs5ho+ogRkCUOAHyW/mdt+rhdielu1TgL3aahHR1Yk9IJbFseQuBSH02yvXDq2Nhg==
@@ -1409,6 +1440,38 @@
     uuid "9.0.0"
     viem "1.6.0"
 
+"@daohaus/moloch-v3-fields@0.3.2":
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/@daohaus/moloch-v3-fields/-/moloch-v3-fields-0.3.2.tgz#aac1efb31017079294a8d12cad2926e5865a9232"
+  integrity sha512-WhTG/fErKdYHILt/g/c7eM6VkroculJFRG3fIPjpe/0lTeYj7gCRG4XfrNH/wpVveseFlxjP62xdZHbgzLVFWA==
+  dependencies:
+    "@daohaus/abis" "0.3.2"
+    "@daohaus/connect" "0.3.2"
+    "@daohaus/form-builder" "0.3.2"
+    "@daohaus/keychain-utils" "0.3.2"
+    "@daohaus/moloch-v3-data" "0.3.2"
+    "@daohaus/moloch-v3-hooks" "0.3.2"
+    "@daohaus/tx-builder" "0.3.2"
+    "@daohaus/ui" "0.3.2"
+    "@daohaus/utils" "0.3.2"
+    "@ethersproject/abi" "5.7.0"
+    "@radix-ui/react-checkbox" "1.0.4"
+    "@walletconnect/client" "1.8.0"
+    "@walletconnect/core" "2.10.0"
+    "@walletconnect/legacy-types" "2.0.0"
+    "@walletconnect/web3wallet" "1.9.0"
+    date-fns "2.30.0"
+    ethers "5.7.2"
+    react "18.2.0"
+    react-datepicker "4.21.0"
+    react-hook-form "7.45.4"
+    react-icons "4.10.1"
+    react-markdown "9.0.0"
+    react-router-dom "6.4.1"
+    styled-components "6.0.7"
+    uuid "9.0.0"
+    viem "1.6.0"
+
 "@daohaus/moloch-v3-hooks@0.3.1":
   version "0.3.1"
   resolved "https://registry.yarnpkg.com/@daohaus/moloch-v3-hooks/-/moloch-v3-hooks-0.3.1.tgz#285386724b08f4279ed4d67e8e3ed17194c86522"
@@ -1421,6 +1484,90 @@
     "@daohaus/profile-data" "0.3.1"
     "@daohaus/utils" "0.3.1"
     react "18.2.0"
+
+"@daohaus/moloch-v3-hooks@0.3.2":
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/@daohaus/moloch-v3-hooks/-/moloch-v3-hooks-0.3.2.tgz#537fef61bc2f4e1f74a1e62d917d5164e7728f08"
+  integrity sha512-0RwPvYhmn/8UP5/WBEBKIh7voaoEFETEtrdy4nD2mw18jL9Cw44tAz/YCx1T1FNHiOXeBT9R4fHBV1eShiuoDQ==
+  dependencies:
+    "@daohaus/abis" "0.3.2"
+    "@daohaus/data-fetch-utils" "0.3.2"
+    "@daohaus/keychain-utils" "0.3.2"
+    "@daohaus/moloch-v3-data" "0.3.2"
+    "@daohaus/profile-data" "0.3.2"
+    "@daohaus/utils" "0.3.2"
+    react "18.2.0"
+
+"@daohaus/moloch-v3-legos@0.3.2":
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/@daohaus/moloch-v3-legos/-/moloch-v3-legos-0.3.2.tgz#d58eec688dd44029e4daf735699dd5467b4b70a8"
+  integrity sha512-J9/tzk6lIp+lBuz2nSc+Bd77K4o6bCZ8FpH7+RPcaIvtTdJY7bSDdU7nK1J1kRaJDFIRvZz34QFi4cr7g0tdvQ==
+  dependencies:
+    "@daohaus/abis" "0.3.2"
+    "@daohaus/connect" "0.3.2"
+    "@daohaus/connect-context" "0.3.2"
+    "@daohaus/data-fetch-utils" "0.3.2"
+    "@daohaus/form-builder" "0.3.2"
+    "@daohaus/form-builder-base" "0.3.2"
+    "@daohaus/keychain-utils" "0.3.2"
+    "@daohaus/moloch-v3-data" "0.3.2"
+    "@daohaus/moloch-v3-fields" "0.3.2"
+    "@daohaus/moloch-v3-hooks" "0.3.2"
+    "@daohaus/profile-data" "0.3.2"
+    "@daohaus/tx-builder" "0.3.2"
+    "@daohaus/ui" "0.3.2"
+    "@daohaus/utils" "0.3.2"
+    "@ethersproject/abi" "5.7.0"
+    "@gnosis.pm/safe-contracts" "1.3.0"
+    "@graphql-typed-document-node/core" "3.2.0"
+    "@hookform/devtools" "4.3.1"
+    "@radix-ui/colors" "0.1.9"
+    "@radix-ui/react-accessible-icon" "1.0.3"
+    "@radix-ui/react-avatar" "1.0.3"
+    "@radix-ui/react-checkbox" "1.0.4"
+    "@radix-ui/react-collapsible" "1.0.3"
+    "@radix-ui/react-dialog" "1.0.4"
+    "@radix-ui/react-dropdown-menu" "2.0.5"
+    "@radix-ui/react-navigation-menu" "1.1.3"
+    "@radix-ui/react-radio-group" "1.1.3"
+    "@radix-ui/react-separator" "1.0.3"
+    "@radix-ui/react-switch" "1.0.3"
+    "@radix-ui/react-toast" "1.1.4"
+    "@radix-ui/react-tooltip" "1.0.6"
+    "@shazow/whatsabi" "0.8.5"
+    "@storybook/core-common" "6.5.16"
+    "@wagmi/connectors" "2.7.0"
+    "@wagmi/core" "1.3.9"
+    "@walletconnect/client" "1.8.0"
+    "@walletconnect/core" "2.10.0"
+    "@walletconnect/legacy-types" "2.0.0"
+    "@walletconnect/web3wallet" "1.9.0"
+    "@web3modal/ethereum" "2.7.1"
+    "@web3modal/react" "2.7.1"
+    classnames "2.3.2"
+    cross-fetch "3.1.8"
+    date-fns "2.30.0"
+    ethereum-blockies-base64 "1.0.2"
+    ethers "5.7.2"
+    ethers-multisend "2.4.0"
+    graphql "16.3.0"
+    graphql-request "4.3.0"
+    localforage "1.10.0"
+    numbro "2.3.6"
+    polished "4.2.2"
+    react "18.2.0"
+    react-datepicker "4.21.0"
+    react-hook-form "7.45.4"
+    react-icons "4.10.1"
+    react-markdown "9.0.0"
+    react-query "3.39.3"
+    react-router-dom "6.4.1"
+    rollup-plugin-sourcemaps "0.6.3"
+    styled-components "6.0.7"
+    tslib "2.6.1"
+    uuid "9.0.0"
+    viem "1.6.0"
+    wagmi "1.3.10"
 
 "@daohaus/moloch-v3-legos@^0.3.1":
   version "0.3.1"
@@ -1493,6 +1640,29 @@
     viem "1.6.0"
     wagmi "1.3.10"
 
+"@daohaus/moloch-v3-macro-ui@^0.3.2":
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/@daohaus/moloch-v3-macro-ui/-/moloch-v3-macro-ui-0.3.2.tgz#929a39bedcc364d1af1ca8f1449c1a037ab58803"
+  integrity sha512-cTbDR1vW2yW0n9rG8fZkPBqBtCrZ6Ml3XNfr6MSdyjWiOmrUhgugyZvRhOdCxOMJRKizrrzSBE2fQiSCqk8CcQ==
+  dependencies:
+    "@daohaus/abis" "0.3.2"
+    "@daohaus/connect" "0.3.2"
+    "@daohaus/form-builder" "0.3.2"
+    "@daohaus/keychain-utils" "0.3.2"
+    "@daohaus/moloch-v3-data" "0.3.2"
+    "@daohaus/moloch-v3-fields" "0.3.2"
+    "@daohaus/moloch-v3-hooks" "0.3.2"
+    "@daohaus/moloch-v3-legos" "0.3.2"
+    "@daohaus/tx-builder" "0.3.2"
+    "@daohaus/ui" "0.3.2"
+    "@daohaus/utils" "0.3.2"
+    "@radix-ui/colors" "0.1.9"
+    react "18.2.0"
+    react-icons "4.10.1"
+    react-markdown "9.0.0"
+    react-table "7.8.0"
+    styled-components "6.0.7"
+
 "@daohaus/profile-data@0.3.1":
   version "0.3.1"
   resolved "https://registry.yarnpkg.com/@daohaus/profile-data/-/profile-data-0.3.1.tgz#4ed8ee4a01c5ddc76b483043ec85ff8c10b6532b"
@@ -1535,6 +1705,26 @@
     "@daohaus/keychain-utils" "0.3.1"
     "@daohaus/moloch-v3-data" "0.3.1"
     "@daohaus/utils" "0.3.1"
+    "@gnosis.pm/safe-contracts" "1.3.0"
+    "@shazow/whatsabi" "0.8.5"
+    "@wagmi/core" "1.3.9"
+    ethers "5.7.2"
+    ethers-multisend "2.4.0"
+    localforage "1.10.0"
+    react "18.2.0"
+    viem "1.6.0"
+    wagmi "1.3.10"
+
+"@daohaus/tx-builder@0.3.2":
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/@daohaus/tx-builder/-/tx-builder-0.3.2.tgz#8f354323bba8e9a4a7fa3ecd9b5e572150ee4269"
+  integrity sha512-jjguQHwwmQfiaonZXnqjCy+TC/OZZDuanl6M/plxi9RwdeaZC+lVA23aBh7ubQE1zw698XvT9BsZfEDL89DvNQ==
+  dependencies:
+    "@daohaus/abis" "0.3.2"
+    "@daohaus/data-fetch-utils" "0.3.2"
+    "@daohaus/keychain-utils" "0.3.2"
+    "@daohaus/moloch-v3-data" "0.3.2"
+    "@daohaus/utils" "0.3.2"
     "@gnosis.pm/safe-contracts" "1.3.0"
     "@shazow/whatsabi" "0.8.5"
     "@wagmi/core" "1.3.9"
@@ -8744,6 +8934,11 @@ react-style-singleton@^2.2.1:
     get-nonce "^1.0.0"
     invariant "^2.2.4"
     tslib "^2.0.0"
+
+react-table@7.8.0:
+  version "7.8.0"
+  resolved "https://registry.yarnpkg.com/react-table/-/react-table-7.8.0.tgz#07858c01c1718c09f7f1aed7034fcfd7bda907d2"
+  integrity sha512-hNaz4ygkZO4bESeFfnfOft73iBUj8K5oKi1EcSHPAibEydfsX2MyU6Z8KCr3mv3C9Kqqh71U+DhZkFvibbnPbA==
 
 react@18.2.0, react@^18.2.0:
   version "18.2.0"
