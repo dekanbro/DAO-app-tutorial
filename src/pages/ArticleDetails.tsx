@@ -12,7 +12,6 @@ import {
   DialogContent,
   DialogTrigger,
   H1,
-  ParLg,
   ParMd,
   Spinner,
   SuccessText,
