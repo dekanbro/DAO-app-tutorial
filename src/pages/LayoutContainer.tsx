@@ -31,6 +31,7 @@ export const LayoutContainer = () => {
         { label: "Submission", href: `/new` },
         { label: "Articles", href: `/articles` },
         { label: "Curate", href: `/proposals` },
+        { label: "About", href: `/` },
       ]} pathname={location.pathname}>
         <CurrentDaoProvider
         userAddress={address}
