@@ -18,12 +18,24 @@ type BlogPost = {
 };
 
 const CardWrapper = styled.div`
-  margin: 2rem;
+  margin: 1rem;
   width: 100%;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+
   justify-items: center;
+`;
+
+const ArticleCard = styled(Card)`
+  width: 100%;
+  max-width: 35rem;
+  min-height: 30rem;
+  padding: 1rem;
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: left;
 `;
 
 const CardTitle = styled(ParMd)`
@@ -43,7 +55,7 @@ const CardAvatar = styled.div`
 `;
 
 const CardImg = styled.div`
-height: 100%;
+height: 20rem;
   img {
     width: 100%;
     height: 100%;
@@ -64,14 +76,16 @@ export const ArticleList = () => {
       {records?.map((record) => {
         const parsedContent: BlogPost = record.parsedContent as BlogPost;
         return (
-          <Card key={record.id}>
+          <ArticleCard key={record.id}>
             <CardImg>
-              <img
-                src={
-                  parsedContent?.imageURI ||
-                  "https://hackmd.io/_uploads/rkWi13-ba.png"
-                }
-              />
+              <Link to={parsedContent?.contentHash}>
+                <img
+                  src={
+                    parsedContent?.imageURI ||
+                    "https://hackmd.io/_uploads/rkWi13-ba.png"
+                  }
+                />
+              </Link>
             </CardImg>
             <CardAvatar>
               {parsedContent?.authorAddress ? (
@@ -83,8 +97,10 @@ export const ArticleList = () => {
             <CardTitle>{parsedContent?.title}</CardTitle>
             <CardDescription>{parsedContent?.description}</CardDescription>
             <ParMd>{parsedContent?.contentURI}</ParMd>
-            <Button variant="link"><Link to={parsedContent?.contentHash}> More...</Link></Button>
-          </Card>
+            <Button variant="link">
+              <Link to={parsedContent?.contentHash}> More...</Link>
+            </Button>
+          </ArticleCard>
         );
       })}
     </CardWrapper>

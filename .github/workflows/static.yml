@@ -1,0 +1,46 @@
+name: Deploy to Web3
+run-name: ${{ github.actor }} is deploying to out Web3 🚀
+on:
+  push:
+    branches: main
+jobs:
+  Deploy-To-Web3-Storage:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
+      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
+      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
+      - run: echo "🍏 This job's status is ${{ job.status }}."
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: 'npm'
+      - run: rm -rf node_modules && yarn install --frozen-lockfile
+      - name: Create env file
+        run: |
+          touch .env
+          echo VITE_RIVET_KEY=${{ secrets.VITE_RIVET_KEY }}  >> .env
+          echo VITE_WALLET_CONNECT_ID=${{ secrets.VITE_WALLET_CONNECT_ID }}  >> .env
+          echo VITE_GRAPH_API_KEY_MAINNET=${{ secrets.VITE_GRAPH_API_KEY_MAINNET }}  >> .env
+          echo VITE_GOERLI_RPC=${{ secrets.VITE_GOERLI_RPC }}  >> .env
+          echo VITE_OPTIMISM_RPC=${{ secrets.VITE_OPTIMISM_RPC }}  >> .env
+      - run: yarn build
+      - name: List files in the repository
+        run: |
+          ls ${{ github.workspace }}
+      - uses: web3-storage/add-to-web3@v2
+        id: web3
+        with:
+          web3_token: ${{ secrets.WEB3_STORAGE_TOKEN }}
+          path_to_add: 'dist'
+
+      - run: echo ${{ steps.web3.outputs.cid }}
+
+      - run: echo ${{ steps.web3.outputs.url }}

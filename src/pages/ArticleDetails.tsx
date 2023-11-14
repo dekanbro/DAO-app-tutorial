@@ -4,17 +4,32 @@ import styled from "styled-components";
 import { TARGET_DAO } from "../targetDao";
 import { useRecords } from "../hooks/useRecords";
 import { useParams } from "react-router-dom";
-import { Button, ParLg, useToast } from "@daohaus/ui";
+import {
+  Avatar,
+  Button,
+  Card,
+  Dialog,
+  DialogContent,
+  DialogTrigger,
+  H1,
+  ParLg,
+  ParMd,
+  Spinner,
+  SuccessText,
+  useToast,
+} from "@daohaus/ui";
 import { AuthorAvatar } from "../components/AuthorAvatar";
 import { useDHConnect } from "@daohaus/connect";
 import { useTxBuilder } from "@daohaus/tx-builder";
 import {
-    // TXLego,
-    handleErrorMessage,
-  } from "@daohaus/utils";
+  TXLego,
+  handleErrorMessage,
+  formatValueTo,
+  fromWei,
+} from "@daohaus/utils";
+
 import { APP_TX } from "../legos/tx";
 import { useState } from "react";
-
 
 type BlogPost = {
   title: string;
@@ -54,9 +69,33 @@ const TitleWrapper = styled.div`
   text-align: center;
 `;
 
+const AvatarGroup = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+`;
+
+const DialogContentWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+const SmallCardImg = styled.img`
+    width: 10rem;
+    height: 10rem;
+    object-fit: cover;
+    margin-bottom: 2rem;
+    `;
+
 export const ArticleDetails = () => {
   //   const location = useLocation(); // for share link
   const [isLoadingTx, setIsLoadingTx] = useState(false);
+  const [isSuccessTx, setIsSuccessTx] = useState(false);
+
   const { hash } = useParams();
   const { address } = useDHConnect();
   const { fireTransaction } = useTxBuilder();
@@ -75,37 +114,45 @@ export const ArticleDetails = () => {
   const parsedContent: BlogPost = records[0]?.parsedContent as BlogPost;
 
   const handleCollect = () => {
-    if(!address) {
-        return;
+    if (!address) {
+      return;
     }
-    
-    fireTransaction({
-        tx: APP_TX.COLLECT as any,
-        callerState: {
-            postId: hash,
-            },
-        lifeCycleFns: {
-          onRequestSign() {
-            setIsLoadingTx(true);
-            defaultToast({
-                title: "Success",
-                description: "Transaction submitted: Wating",
-              })
-          },
-          onTxSuccess() {
-            setIsLoadingTx(false);
-            successToast({ title: "Success", description: "Minted" });
-          },
-          onTxError(err) {
-            const errMsg = handleErrorMessage(err as any);
-            console.error(err);
-            errorToast({ title: "Error", description: errMsg });
-            setIsLoadingTx(false);
-          },
-        },
-      });
 
-}
+    fireTransaction({
+      tx: {
+        ...APP_TX.COLLECT,
+        staticOverrides: {
+          value: BigInt(TARGET_DAO.NFT_PRICE),
+        },
+      } as TXLego,
+      callerState: {
+        postId: hash,
+      },
+      lifeCycleFns: {
+        onRequestSign() {
+          setIsLoadingTx(true);
+          setIsSuccessTx(false);
+          defaultToast({
+            title: "Success",
+            description: "Transaction submitted: Wating",
+          });
+        },
+        onTxSuccess() {
+          setIsLoadingTx(false);
+          setIsSuccessTx(true);
+          successToast({ title: "Success", description: "Minted" });
+        },
+        onTxError(err) {
+          const errMsg = handleErrorMessage(
+            err as { error: unknown; fallback?: string | undefined }
+          );
+          console.error(err);
+          errorToast({ title: "Error", description: errMsg });
+          setIsLoadingTx(false);
+        },
+      },
+    });
+  };
 
   return (
     <ArticleLayout>
@@ -118,7 +165,7 @@ export const ArticleDetails = () => {
         />
       </HeaderImageWrapper>
       <TitleWrapper>
-        <ParLg>{parsedContent?.title}</ParLg>
+        <H1>{parsedContent?.title}</H1>
       </TitleWrapper>
 
       {parsedContent?.authorAddress ? (
@@ -128,7 +175,63 @@ export const ArticleDetails = () => {
       )}
 
       <ReactMarkdown>{parsedContent?.description}</ReactMarkdown>
-      <Button onClick={handleCollect} disabled={!!isLoadingTx}>Collect</Button>
+      <Dialog>
+        <DialogTrigger asChild>
+          <Button variant="outline">Collect</Button>
+        </DialogTrigger>
+        <DialogContent
+          title="Collect"
+          rightButton={{
+            onClick: handleCollect,
+            disabled: !!isLoadingTx,
+            children: "Collect",
+          }}
+        >
+          <DialogContentWrapper>
+            {!address ? (
+              <ParMd>Connect to collect</ParMd>
+            ) : (
+              <>
+                <Card>
+                    <SmallCardImg
+                      src={
+                        parsedContent?.imageURI
+                      } />
+                    <ParMd>{parsedContent?.title}</ParMd>
+                </Card>
+                <ParMd>Mint and collect this article</ParMd>
+                <ParMd>
+                  Price will be{" "}
+                  {formatValueTo({
+                    value: fromWei(TARGET_DAO.NFT_PRICE),
+                    decimals: 6,
+                    format: "number",
+                  })}{" "}
+                  eth (~$1)
+                </ParMd>
+                <ParMd>20% goes to the author and 80% to the DAO</ParMd>
+                {isLoadingTx && (
+                  <ParMd>
+                    <Spinner /> Waiting for transaction 
+                  </ParMd>
+                )}
+                {isSuccessTx && (
+                  <SuccessText>Success! Thank you for your support</SuccessText>
+                )}
+              </>
+            )}
+          </DialogContentWrapper>
+        </DialogContent>
+      </Dialog>
+      <>
+        <AvatarGroup>
+          {/* stubbed out, can get from nft */}
+          <ParMd>Collected By:</ParMd>
+          <Avatar size="sm"></Avatar>
+          <Avatar size="sm"></Avatar>
+          <Avatar size="sm"></Avatar>
+        </AvatarGroup>
+      </>
     </ArticleLayout>
   );
 };

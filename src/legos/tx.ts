@@ -13,6 +13,7 @@ export enum ProposalTypeIds {
     TokensForShares = "TOKENS_FOR_SHARES",
     GuildKick = "GUILDKICK",
     WalletConnect = "WALLETCONNECT",
+    Article = "ARTICLE",
   }
 
 export const APP_TX = {
@@ -24,9 +25,6 @@ export const APP_TX = {
           ".postId"
         ],
         disablePoll: true,
-        staticOverrides: {
-          value: TARGET_DAO.NFT_PRICE,
-        }
       },
     MINT_POST: buildMultiCallTX({
         id: "MINT_PROPOSAL",
@@ -37,7 +35,7 @@ export const APP_TX = {
         description: `.formValues.pubDescription`,
         contentURI: `.formValues.link`,
         contentURIType: { type: "static", value: "url" },
-        proposalType: { type: "static", value: ProposalTypeIds.Signal },
+        proposalType: { type: "static", value: ProposalTypeIds.Article },
       },
     },
     actions: [{
