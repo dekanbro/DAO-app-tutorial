@@ -13,3 +13,7 @@
 - [DAO Database (6min)](https://www.loom.com/share/e5613b02e2744ab79491192fc2dd30a7?sid=8843b6b0-58b7-4da2-b884-8250db72f33f)
 - [Build A Shaman Contract (10mins)](https://www.loom.com/share/6e4c6b2542794d9594dec7bc6f4ed4ca?sid=6ed7d043-d73f-4fc2-b6c9-82c5ef652a02)
 - [Put it all Together  (3 (mins)](https://www.loom.com/share/6347b422a4ba450da8491e9ba9dd4c2f?sid=e2acd98b-c038-419d-9ee9-0bceb579663b)
+
+## Working DEMO of what we create in the tutorials
+
+[DIN - DAO Immutable News](https://ipfs.io/ipfs/bafybeihonphdxvmf4zx7lgztvy7gwez25bvxkqsjpmdhj7l5owiwgeunhi/ )
