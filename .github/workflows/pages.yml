@@ -26,11 +26,6 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-      VITE_RIVET_KEY: ${{ secrets.VITE_RIVET_KEY }}
-      VITE_WALLET_CONNECT_ID: ${{ secrets.VITE_WALLET_CONNECT_ID }}
-      VITE_GRAPH_API_KEY_MAINNET: ${{ secrets.VITE_GRAPH_API_KEY_MAINNET }}
-      VITE_GOERLI_RPC: ${{ secrets.VITE_GOERLI_RPC }}
-      VITE_OPTIMISM_RPC: ${{ secrets.VITE_OPTIMISM_RPC }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -44,6 +39,12 @@ jobs:
         run: npm install
       - name: Build
         run: npm run build
+        env:
+          VITE_RIVET_KEY: ${{ secrets.VITE_RIVET_KEY }}
+          VITE_WALLET_CONNECT_ID: ${{ secrets.VITE_WALLET_CONNECT_ID }}
+          VITE_GRAPH_API_KEY_MAINNET: ${{ secrets.VITE_GRAPH_API_KEY_MAINNET }}
+          VITE_GOERLI_RPC: ${{ secrets.VITE_GOERLI_RPC }}
+          VITE_OPTIMISM_RPC: ${{ secrets.VITE_OPTIMISM_RPC }}
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact
