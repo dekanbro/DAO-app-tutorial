@@ -34,7 +34,7 @@ export default ({ mode }) => {
         },
       },
     },
-
+    base: "/DAO-app-tutorial/",
     build: {
       target: ["es2020"],
     },
