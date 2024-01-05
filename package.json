@@ -18,6 +18,7 @@
     "@daohaus/moloch-v3-macro-ui": "^0.3.2",
     "@daohaus/tx-builder": "^0.3.1",
     "@daohaus/ui": "^0.3.1",
+    "@wagmi/core": "^2.0.1",
     "process": "^0.11.10",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
